@@ -24,6 +24,7 @@ setuptools.setup(
         'odoo-addon-pos_hide_banknote_button>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_barcode>=16.0dev,<16.1dev',
         'odoo-addon-pos_lot_selection>=16.0dev,<16.1dev',
+        'odoo-addon-pos_loyalty_exclude>=16.0dev,<16.1dev',
         'odoo-addon-pos_loyalty_redeem_payment>=16.0dev,<16.1dev',
         'odoo-addon-pos_margin>=16.0dev,<16.1dev',
         'odoo-addon-pos_membership>=16.0dev,<16.1dev',
