@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 12.0\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2024-05-23 01:18+0000\n"
 "Last-Translator: Rodrigo Macedo <sottomaiormacedotec@users.noreply."
@@ -98,13 +98,6 @@ msgid "Create Sale Orders"
 msgstr "Criar Ordem de Venda"
 
 #. module: pos_order_to_sale_order
-#. odoo-javascript
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
-msgid "Discard"
-msgstr "Descartar"
-
-#. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_confirmed_sale_order
 msgid ""
@@ -181,40 +174,3 @@ msgstr "Pedidos de Vendas"
 msgid "Sales Order Line"
 msgstr "Linha da Ordem de Venda"
 
-#, python-format
-#~ msgid "Back"
-#~ msgstr "Voltar"
-
-#, python-format
-#~ msgid "Check your internet connection and try again."
-#~ msgstr "Verifique sua conexão com a internet e tente novamente."
-
-#, python-format
-#~ msgid "Create Sale Order and discard the current PoS Order?"
-#~ msgstr "Criar Pedido de Venda e descartar o Pedido de PDV atual?"
-
-#, python-format
-#~ msgid "No customer defined"
-#~ msgstr "Defina um Cliente"
-
-#~ msgid "Sale Order"
-#~ msgstr "Ordem de Venda"
-
-#~ msgid "Sale Order Creations"
-#~ msgstr "Criar Ordem de Venda"
-
-#, python-format
-#~ msgid "The order could not be sent"
-#~ msgstr "A ordem não pôde ser enviada"
-
-#, python-format
-#~ msgid ""
-#~ "This operation will permanently discard the current PoS Order and create "
-#~ "a Sale Order, based on the current order lines."
-#~ msgstr ""
-#~ "Esta operação descartará permanentemente o Pedido PDV atual e criará um "
-#~ "Pedido de Venda, com base nas linhas de pedidos atuais."
-
-#, python-format
-#~ msgid "You should select a customer in order to create a Sale Order."
-#~ msgstr "Você deve selecionar um cliente para criar um Pedido de Venda."

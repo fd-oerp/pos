@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2024-09-25 08:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
@@ -95,13 +95,6 @@ msgstr "Crea ordine di vendita"
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
 msgid "Create Sale Orders"
 msgstr "Crea ordini di vendita"
-
-#. module: pos_order_to_sale_order
-#. odoo-javascript
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
-msgid "Discard"
-msgstr "Abbandona"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order

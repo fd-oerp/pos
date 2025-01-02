@@ -1,2 +1,4 @@
 - Sylvain LE GAL (<https://www.twitter.com/legalsylvain>)
 - Chau Le (<chaulb@trobz.com>)
+- OERP Canada (<https://oerp.ca>)
+  - Foram Darji (<fd.oerp.ca>)

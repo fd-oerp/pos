@@ -4,17 +4,16 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-12-16 10:06+0000\n"
-"Last-Translator: mtbochaca <mtbochaca@gmail.com>\n"
-"Language-Team: none\n"
-"Language: ca\n"
+"POT-Creation-Date: 2025-01-02 21:38+0000\n"
+"PO-Revision-Date: 2025-01-02 21:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6.2\n"
+"Plural-Forms: \n"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model,name:pos_order_to_sale_order.model_res_config_settings
@@ -24,7 +23,6 @@ msgstr "Ajustos de configuració"
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
 msgid "Create Confirmed Sale Order"
 msgstr "Crear comanda de venda confirmada"
 
@@ -38,7 +36,6 @@ msgstr "Crear comandes de venda confirmades"
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
 msgid "Create Delivered Sale Order"
 msgstr "Crear comanda de venda entregada"
 
@@ -52,7 +49,6 @@ msgstr "Crear comandes de venda entregades"
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
 msgid "Create Draft Sale Order"
 msgstr "Crear esborrany de comandes de venda"
 
@@ -66,7 +62,6 @@ msgstr "Crear esborrany de comandes de venda"
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
 msgid "Create Invoiced Sale Order"
 msgstr "Crear comanda de venda facturada"
 
@@ -75,35 +70,19 @@ msgstr "Crear comanda de venda facturada"
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_res_config_settings__pos_iface_create_invoiced_sale_order
 #: model_terms:ir.ui.view,arch_db:pos_order_to_sale_order.view_res_config_settings_form
 msgid "Create Invoiced Sale Orders"
-msgstr "Crear comandes de venda facturades"
+msgstr "Crear comanda de venda facturada"
 
 #. module: pos_order_to_sale_order
 #. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderButton.xml:0
-#, python-format
-msgid "Create Order"
-msgstr "Crear comanda de venda"
-
-#. module: pos_order_to_sale_order
-#. odoo-javascript
 #: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
-msgid "Create Sale Order"
+msgid "Create Order"
 msgstr "Crear comanda de venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,field_description:pos_order_to_sale_order.field_pos_config__iface_create_sale_order
 msgid "Create Sale Orders"
-msgstr "Crear comandes de venda"
-
-#. module: pos_order_to_sale_order
-#. odoo-javascript
-#: code:addons/pos_order_to_sale_order/static/src/xml/CreateOrderPopup.xml:0
-#, python-format
-msgid "Discard"
-msgstr "Descartar"
+msgstr "Crear comanda de venda"
 
 #. module: pos_order_to_sale_order
 #: model:ir.model.fields,help:pos_order_to_sale_order.field_pos_config__iface_create_confirmed_sale_order
@@ -155,7 +134,6 @@ msgstr ""
 #. module: pos_order_to_sale_order
 #. odoo-python
 #: code:addons/pos_order_to_sale_order/models/sale_order.py:0
-#, python-format
 msgid "Point of Sale %s"
 msgstr "Punt de venda %s"
 

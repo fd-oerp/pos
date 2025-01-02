@@ -9,13 +9,13 @@ class SaleOrder(models.Model):
     _inherit = "sale.order"
 
     @api.model
-    def _prepare_from_pos(self, order_data):
+    def _prepare_from_pos(self, order_data, order_lines):
         PosSession = self.env["pos.session"]
-        session = PosSession.browse(order_data["pos_session_id"])
+        session = PosSession.browse(order_data["session_id"])
         SaleOrderLine = self.env["sale.order.line"]
-        order_lines = [
-            Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data[2]))
-            for sequence, line_data in enumerate(order_data["lines"], start=1)
+        order_lines_data = [
+            Command.create(SaleOrderLine._prepare_from_pos(sequence, line_data))
+            for sequence, line_data in enumerate(order_lines, start=1)
         ]
         return {
             "partner_id": order_data["partner_id"],
@@ -24,16 +24,17 @@ class SaleOrder(models.Model):
             "user_id": order_data["user_id"],
             "pricelist_id": order_data["pricelist_id"],
             "fiscal_position_id": order_data["fiscal_position_id"],
-            "order_line": order_lines,
+            "order_line": order_lines_data,
         }
 
     @api.model
-    def create_order_from_pos(self, order_data, action):
+    def create_order_from_pos(self, order_data, order_lines, action):
         # Create Draft Sale order
-        order_vals = self._prepare_from_pos(order_data)
-        sale_order = self.with_context(
-            pos_order_lines_data=[x[2] for x in order_data.get("lines", [])]
-        ).create(order_vals)
+        order_vals = self._prepare_from_pos(order_data, order_lines)
+
+        sale_order = self.with_context(pos_order_lines_data=order_lines).create(
+            order_vals
+        )
 
         # Confirm Sale Order
         if action in ["confirmed", "delivered", "invoiced"]:

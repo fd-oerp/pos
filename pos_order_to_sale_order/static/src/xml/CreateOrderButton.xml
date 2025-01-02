@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <templates id="template" xml:space="preserve">
 
-    <t t-name="pos_order_to_sale_order.CreateOrderButton" owl="1">
+    <t t-name="pos_order_to_sale_order.CreateOrderButton">
         <button
-            class="control-button btn btn-light rounded-0 fw-bolder"
-            t-on-click="onClick"
+            class="create-order btn btn-light btn-lg lh-lg text-truncate w-auto"
+            t-on-click="getOrder"
         >
-            <i
-            class="fa fa-file-text me-1"
-            role="img"
-            aria-label="Create Order"
-            title="Create Order"
-        />
-            Create Order
+            <t>Create Order</t>
         </button>
+    </t>
+
+    <t
+        t-name="pos_order_to_sale_order.ControlButtons"
+        t-inherit="point_of_sale.ControlButtons"
+        t-inherit-mode="extension"
+    >
+        <xpath
+            expr="//SelectPartnerButton[@t-if='!props.showRemainingButtons']"
+            position="after"
+        >
+            <t
+                t-if="pos.config.iface_create_sale_order and currentOrder?.get_partner() and pos.get_order()?.get_orderlines()?.length > 0"
+            >
+                <CreateOrderButton />
+            </t>
+        </xpath>
     </t>
 
 </templates>

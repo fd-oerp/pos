@@ -1,27 +1,33 @@
 import {Component} from "@odoo/owl";
-import {CreateOrderPopup} from "./CreateOrderPopup.esm";
-import {ProductScreen} from "@point_of_sale/app/screens/product_screen/product_screen";
+import {ControlButtons} from "@point_of_sale/app/screens/product_screen/control_buttons/control_buttons";
+import {CreateOrderPopup} from "./CreateOrderPopup.esm.js";
+import {Dialog} from "@web/core/dialog/dialog";
+import {patch} from "@web/core/utils/patch";
+import {registry} from "@web/core/registry";
 import {useService} from "@web/core/utils/hooks";
 
 export class CreateOrderButton extends Component {
+    static props = {};
+    static components = {Dialog};
     setup() {
-        this.popup = useService("popup");
+        this.dialog = useService("dialog");
     }
-
-    onClick() {
-        this.popup.add(CreateOrderPopup, {zIndex: 1069});
+    getOrder() {
+        return this.dialog.add(CreateOrderPopup);
     }
 }
 
 CreateOrderButton.template = "pos_order_to_sale_order.CreateOrderButton";
 
-ProductScreen.addControlButton({
-    component: CreateOrderButton,
-    condition: function () {
-        return (
-            this.pos.config.iface_create_sale_order &&
-            this.pos.get_order().get_partner() &&
-            this.pos.get_order().get_orderlines().length !== 0
-        );
+// Register the component
+registry.category("components").add("CreateOrderButton", CreateOrderButton);
+
+patch(ControlButtons, {
+    setup() {
+        super.setup(...arguments);
+    },
+    components: {
+        ...ControlButtons.components,
+        CreateOrderButton,
     },
 });

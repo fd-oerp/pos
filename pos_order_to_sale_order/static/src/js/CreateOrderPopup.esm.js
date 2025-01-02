@@ -1,14 +1,19 @@
-import {AbstractAwaitablePopup} from "@point_of_sale/app/popup/abstract_awaitable_popup";
+import {Component} from "@odoo/owl";
+import {Dialog} from "@web/core/dialog/dialog";
 import {usePos} from "@point_of_sale/app/store/pos_hook";
 import {useService} from "@web/core/utils/hooks";
 
-export class CreateOrderPopup extends AbstractAwaitablePopup {
+export class CreateOrderPopup extends Component {
+    static props = {
+        close: Function,
+    };
+    static template = "pos_order_to_sale_order.CreateOrderPopup";
+    static components = {Dialog};
     setup() {
         super.setup();
         this.pos = usePos();
         this.ui = useService("ui");
         this.orm = useService("orm");
-        this.createOrderClicked = false;
     }
 
     async createDraftSaleOrder() {
@@ -28,28 +33,28 @@ export class CreateOrderPopup extends AbstractAwaitablePopup {
     }
 
     async _actionCreateSaleOrder(order_state) {
-        // Create Sale Order
         await this._createSaleOrder(order_state);
 
-        // Delete current order
+        // Delete the current order
         const current_order = this.pos.get_order();
         this.pos.removeOrder(current_order);
         this.pos.add_new_order();
-
-        // Close popup
-        return await super.confirm();
+        this.props.close();
     }
 
     async _createSaleOrder(order_state) {
         const current_order = this.pos.get_order();
+        const current_order_lines = Array.from(current_order.get_orderlines());
         this.ui.block();
 
         return await this.orm
             .call("sale.order", "create_order_from_pos", [
-                current_order.export_as_JSON(),
+                current_order._raw,
+                current_order_lines.map((line) => line._raw),
                 order_state,
             ])
             .catch((error) => {
+                console.error("Failed to create sale order:", error);
                 throw error;
             })
             .finally(() => {
@@ -57,5 +62,3 @@ export class CreateOrderPopup extends AbstractAwaitablePopup {
             });
     }
 }
-
-CreateOrderPopup.template = "pos_order_to_sale_order.CreateOrderPopup";
